@@ -10,6 +10,7 @@ import (
 
 // Method to filter payload
 func filter(payload string) bool {
+	// To be changed
 	return len(payload) > 10
 }
 
@@ -58,6 +59,7 @@ func main() {
 
 	flag.Parse()
 
+	// Obtain the source and the destination
 	source := *sourceIp + ":" + *sourcePort
 	dest := *destIp + ":" + *destPort
 
@@ -68,6 +70,7 @@ func main() {
 	}
 	defer l.Close()
 
+	// Busy wait for the connections from the client
 	for {
 		c, err := l.Accept()
 		if err != nil {
